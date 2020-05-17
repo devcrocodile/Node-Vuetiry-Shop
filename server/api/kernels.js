@@ -40,7 +40,7 @@ router.post('/', (req, res, next) => {
             res.json(kernels[0]);
         });
     } else {
-        next(new Error('Invalid post'));
+        next(new Error('Invalid kernel'));
     }
 });
 
@@ -50,7 +50,7 @@ router.put('/:id', isValidId, (req, res, next) => {
             res.json(kernels[0]);
         });
     } else {
-        next(new Error('Invalid kernel given'));
+        next(new Error('Invalid kernel'));
     }
 });
 
