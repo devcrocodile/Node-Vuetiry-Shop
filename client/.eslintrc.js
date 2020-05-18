@@ -23,16 +23,6 @@ module.exports = {
     },
     // add your custom rules here
     rules: {
-        // don't require .vue extension when importing
-        'import/extensions': [
-            'error',
-            'prettier',
-            'always',
-            {
-                js: 'never',
-                vue: 'never',
-            },
-        ],
         // disallow reassignment of function parameters
         // disallow parameter object manipulation except for specific exclusions
         'no-param-reassign': [
@@ -46,17 +36,11 @@ module.exports = {
                 ],
             },
         ],
-        // allow optionalDependencies
-        'import/no-extraneous-dependencies': [
-            'error',
-            {
-                optionalDependencies: ['test/unit/index.js'],
-            },
-        ],
         indent: ['error', 4],
         'space-before-function-paren': 0,
         'no-console': 0,
         'func-names': 0,
+        'arrow-parens': 0,
         // allow debugger during development
         'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     },
