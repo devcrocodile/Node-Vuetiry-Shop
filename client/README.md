@@ -1,6 +1,6 @@
-# client
+# Kernel Shoppe's Client
 
-> kernel shoppe's client
+> Built with Vue.js and Vuetify.js using Vue's webpack template (details below).
 
 ## Build Setup
 
