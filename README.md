@@ -1,6 +1,6 @@
 # Kernel Shoppe 
 
-This repository houses the client and server side codebase for a fullstack application that allows customers to buy nuts and admins to CRUD various types of nuts. Server side code is written with Node/Express/Postgres. Client side code is written with Vue/Vuetify. 
+This repository houses the client and server side codebase for a fullstack application that allows customers to buy nuts and admins to CRUD various types of nuts. Server side code is written with Node/Express/PostgreSQL. Client side code is written with Vue/Vuetify. 
 
 Demo
 --
