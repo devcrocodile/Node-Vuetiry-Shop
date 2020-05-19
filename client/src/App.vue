@@ -10,6 +10,14 @@
                         <v-list-item-title class="subtitle-1">Kernel Shop Front</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
+                <v-list-item link :to=" { name: 'Create' }">
+                    <v-list-item-action>
+                        <v-icon>mdi-peanut</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title class="subtitle-1">Add Product</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
             </v-list>
         </v-navigation-drawer>
 

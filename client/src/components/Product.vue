@@ -7,8 +7,8 @@
           <div>
             <h3 class="headline mb-0">{{product.title}}</h3>
             <div>{{product.description}}</div>
-            <h4>${{product.rating}}</h4>
-            <small>{{product.rating}} in stock</small>
+            <h4>${{product.price}}</h4>
+            <small>{{product.count}} in stock</small>
           </div>
         </v-card-title>
         <v-card-actions>

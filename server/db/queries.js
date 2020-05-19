@@ -15,5 +15,5 @@ module.exports = {
     },
     delete(id) {
         return knex('kernel').where('id', id).del();
-    }
+    },
 };
