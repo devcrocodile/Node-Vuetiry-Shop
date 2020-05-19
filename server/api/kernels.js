@@ -1,8 +1,11 @@
+/* ---------------------------------------- Dependencies ---------------------------------------- */
+
 const express = require('express');
+const queries = require('../db/queries');
 
 const router = express.Router();
 
-const queries = require('../db/queries');
+/* -------------------------------------- Helper Functions -------------------------------------- */
 
 function isValidId(req, res, next) {
     if (!isNaN(req.params.id)) return next();
@@ -14,9 +17,12 @@ function validKernel(kernel) {
     const hasURL = typeof kernel.url === 'string' && kernel.url.trim() !== '';
     const hasDescription =
         typeof kernel.description === 'string' && kernel.description.trim() !== '';
-    const hasRating = !isNaN(kernel.rating);
-    return hasTitle && hasDescription && hasURL && hasRating;
+    const hasCount = !isNaN(kernel.count);
+    const hasPrice = !isNaN(kernel.price);
+    return hasTitle && hasDescription && hasURL && hasCount && hasPrice;
 }
+
+/* ----------------------------------------- CRUD Routes ---------------------------------------- */
 
 router.get('/', (req, res) => {
     queries.getAll().then((kernels) => {
@@ -57,7 +63,7 @@ router.put('/:id', isValidId, (req, res, next) => {
 router.delete('/:id', isValidId, (req, res) => {
     queries.delete(req.params.id).then(() => {
         res.json({
-            deleted: true
+            deleted: true,
         });
     });
 });

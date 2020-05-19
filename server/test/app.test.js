@@ -1,8 +1,12 @@
+/* ---------------------------------------- Dependencies ---------------------------------------- */
+
 const request = require('supertest');
 const { expect } = require('chai');
 const knex = require('../db/knex');
 const app = require('../app');
 const fixtures = require('./fixtures');
+
+/* ---------------------------------- Tests for the kernel api ---------------------------------- */
 
 describe('CRUD Kernels', () => {
     before((done) => {
@@ -89,9 +93,9 @@ describe('CRUD Kernels', () => {
     });
 
     it('Update a record', (done) => {
-        fixtures.kernel.rating = 6;
+        fixtures.kernel.count += 6;
         request(app)
-            .put('/api/v1/kernels/11')
+            .put('/api/v1/kernels/10')
             .send(fixtures.kernel)
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
@@ -109,14 +113,14 @@ describe('CRUD Kernels', () => {
 
     it('Deletes a record', (done) => {
         request(app)
-            .delete('/api/v1/kernels/11')
+            .delete('/api/v1/kernels/10')
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200)
             .then((response) => {
                 expect(response.body).to.be.a('object');
                 expect(response.body).to.deep.equal({
-                    deleted: true
+                    deleted: true,
                 });
                 done();
             })
