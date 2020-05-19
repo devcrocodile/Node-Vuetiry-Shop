@@ -15,9 +15,9 @@ export default {
             product: {
                 title: '',
                 description: '',
+                count: 0,
                 price: 0,
-                quantity: 0,
-                image: '',
+                url: '',
             },
         };
     },
@@ -33,7 +33,8 @@ export default {
                 });
         },
         submit() {
-            this.product.quantity = Number(this.product.quantity);
+            this.product.count = Number(this.product.count);
+            this.product.price = Number(this.product.price);
             API.updateProduct(this.product.id, this.product)
                 .then(() => {
                     this.$router.push({

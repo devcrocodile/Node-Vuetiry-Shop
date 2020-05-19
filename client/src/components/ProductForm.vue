@@ -14,21 +14,20 @@
           multi-line
         ></v-text-field>
         <v-text-field
-          label="Price"
-          v-model="product.price"
+          label="Count"
+          v-model="product.count"
+          :rules="quantityRules"
           required
-          :rules="priceRules"
-          prefix="$"
         ></v-text-field>
         <v-text-field
-          label="Quantity"
-          v-model="product.quantity"
+          label="Price"
+          v-model="product.price"
           :rules="quantityRules"
           required
         ></v-text-field>
         <v-text-field
           label="Image"
-          v-model="product.image"
+          v-model="product.url"
           required
           :rules="imageRules"
         ></v-text-field>
@@ -49,18 +48,13 @@ export default {
                 if (title.trim() === '') return 'Title must not be empty.';
                 return true;
             }],
-            priceRules: [(price) => {
-                if (isNaN(price)) return 'Price must be a valid number.';
-                if (Number(price) <= 0) return 'Price must be greater than $0';
+            quantityRules: [(rating) => {
+                if (isNaN(rating)) return 'Must be a valid number.';
+                if (Number(rating) < 0) return 'Must be 0 or greater';
                 return true;
             }],
-            quantityRules: [(quantity) => {
-                if (isNaN(quantity)) return 'Quantity must be a valid number.';
-                if (Number(quantity) < 0) return 'Quantity must be 0 or greater';
-                return true;
-            }],
-            imageRules: [(image) => {
-                if (image.trim() === '') return 'Image must not be empty.';
+            imageRules: [(url) => {
+                if (url.trim() === '') return 'url must not be empty.';
                 return true;
             }],
         };

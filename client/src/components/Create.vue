@@ -15,15 +15,16 @@ export default {
             product: {
                 title: '',
                 description: '',
+                count: 0,
                 price: 0,
-                quantity: 0,
-                image: '',
+                url: '',
             },
         };
     },
     methods: {
         submit() {
-            this.product.quantity = Number(this.product.quantity);
+            this.product.count = Number(this.product.count);
+            this.product.price = Number(this.product.price);
             API.createProduct(this.product)
                 .then(({ id }) => {
                     this.$router.push({
